@@ -3,6 +3,7 @@ import {data} from "models/records";
 
 export default class DataView extends JetView{
 	config(){
+		this.webix
 		var ui = {
 			view: "datatable",
 			id: "dtable",
@@ -55,6 +56,7 @@ export default class DataView extends JetView{
 			var column = "title";
 			if($$("dtable").isColumnVisible(column)){
 				$$("dtable").hideColumn(column,{spans:spans});
+				$$("")
 			}else{
 				$$("dtable").showColumn(column,{spans:spans});
 			}
@@ -154,21 +156,12 @@ export default class DataView extends JetView{
 							togglerank(rank)
 						}
 					}
-				},
-				afterSelect: function(){
-					if(title){
-						ict = "webix_icon wxi-eye";
-					}else{
-						ict = "webix_icon wxi-eye-slash";
-					}
 				}
 			})
 		}
 		return ui;
 	}
 
-	
-	
 	init(view){
 		$$("dtable").parse(data)
 	}
